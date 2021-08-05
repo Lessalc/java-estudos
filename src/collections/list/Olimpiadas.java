@@ -8,6 +8,8 @@ public class Olimpiadas {
 
     // Inspirados pela Olimpiada vamos criar algumas funções e manipular listas
     static List<Double> notasSkate(List<Double> notasTotais, int notasRetiradas){
+        // Função que recebe uma lista de notas e uma quantidade de notas a serem retiradas
+        // Retorna uma nova lista de notas com as n maiores notas, sendo n a quantidade inicial menos as retiradas
         int n = 1;
         while(n<=notasRetiradas){
             double menorNota = Collections.min(notasTotais);
@@ -18,6 +20,7 @@ public class Olimpiadas {
     }
 
     static List<Double> pontuacaoAcima(List<Double> pontuacoes, int minValor){
+        // Retorna uma lista a qual foram retirados os valores abaixo de um mínimo
         pontuacoes.removeIf(pontuacao -> pontuacao < minValor);
         return pontuacoes;
     }
