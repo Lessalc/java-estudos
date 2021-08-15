@@ -1,8 +1,8 @@
 package estruturadados.filas;
 
-public class Fila {
+public class Fila<T> {
 
-    private No refNoEntradaFila;
+    private No<T> refNoEntradaFila;
 
     public Fila() {
         this.refNoEntradaFila = null;
@@ -12,14 +12,15 @@ public class Fila {
         return refNoEntradaFila == null;
     }
 
-    public void enqueue(No novoNo){
+    public void enqueue(T obj){
+        No<T> novoNo = new No<>(obj);
         novoNo.setRefNo(refNoEntradaFila);
         refNoEntradaFila = novoNo;
     }
 
-    public No first(){
+    public T first(){
         if(!this.isEmpty()){
-            No primeiroNo = refNoEntradaFila;
+            No<T> primeiroNo = refNoEntradaFila;
             while(true){
                 if (primeiroNo.getRefNo() != null){
                     primeiroNo = primeiroNo.getRefNo();
@@ -28,15 +29,15 @@ public class Fila {
                     break;
                 }
             }
-            return primeiroNo;
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
 
-    public No dequeue(){
+    public T dequeue(){
         if(!this.isEmpty()){
-            No primeiroNo = refNoEntradaFila;
-            No noAuxiliar = refNoEntradaFila;
+            No<T> primeiroNo = refNoEntradaFila;
+            No<T> noAuxiliar = refNoEntradaFila;
             while(true){
                 if (primeiroNo.getRefNo() != null){
                     noAuxiliar = primeiroNo;
@@ -46,7 +47,7 @@ public class Fila {
                     break;
                 }
             }
-            return primeiroNo;
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
@@ -54,7 +55,7 @@ public class Fila {
     @Override
     public String toString() {
         String stringRetorno = "";
-        No noAuxiliar = refNoEntradaFila;
+        No<T> noAuxiliar = refNoEntradaFila;
 
         if(refNoEntradaFila != null){
             while (true){
