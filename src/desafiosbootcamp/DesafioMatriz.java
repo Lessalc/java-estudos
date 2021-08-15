@@ -15,14 +15,17 @@ public class DesafioMatriz {
         double soma = 0;
         char O = leitor.next().toUpperCase().charAt(0);
         double[][] M = new double[4][4];
-        for (int i = 0; i<4; i++) {
-            for (int j = 0; j<4; j++) {
+
+        System.out.println(M[0].length);
+
+        for (int i=0; i <M[0].length; i++) {
+        	for (int j=0; j <M[i].length; j++) {
                 M[i][j] = leitor.nextDouble();
             }
         }
 
-        for (int i = 0; i<4; i++) {
-            for (int j = 0; j<4; j++) {
+        for (int i=0; i <M[0].length; i++) {
+            for (int j=0; j <M[i].length; j++) {
                 if (i+j<4) soma += M[i][j];
             }
         }
